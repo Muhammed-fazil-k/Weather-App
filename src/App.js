@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import ResultBox from "./components/ResultBox";
+import SearchBox from "./components/SearchBox";
 function App() {
+  const [weatherData,setWeatherData] = useState('');
+  const [errorData,setErrorData] =useState('');
+  const responseHandler = (data)=>{
+    const [weather,err] =data;
+    setWeatherData(weather);
+    setErrorData(err);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBox  onSearchCity = {responseHandler}/>
+      <ResultBox weatherData ={weatherData} error ={errorData}/>
     </div>
   );
 }
