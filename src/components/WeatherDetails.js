@@ -7,7 +7,7 @@ const WeatherDetails = (props) => {
       <div className="weather-condition">
         <div className="weather-state">{props.data.current.condition.text}</div>
         <div>
-          <img src={props.data.current.condition.icon} />
+          <img src={props.data.current.condition.icon}  alt="Weather mood"/>
         </div>
 
         <div className="degree">{props.data.current.feelslike_c}<span>&#176;C</span></div>

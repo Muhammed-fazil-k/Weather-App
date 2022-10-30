@@ -14,7 +14,7 @@ const SearchBox = (props) => {
     event.preventDefault();
     axios
       .get(
-        `http://api.weatherapi.com/v1/current.json?key=f446b7cbc53f44ceb9d95658222810&q=${cityName}&aqi=no`
+        `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_VERY_PRIVATE_KEY}&q=${cityName}&aqi=no`
       )
       .then((data) => {
         props.onSearchCity([data.data, ""]);
